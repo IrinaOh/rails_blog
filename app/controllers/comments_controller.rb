@@ -1,9 +1,8 @@
-class PostsController < ApplicationController
+class CommentsController < ApplicationController
   def index
   end
 
   def create
-    
   end
 
   def new
@@ -19,9 +18,5 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    
-  end
-
-  def search
   end
 end
