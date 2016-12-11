@@ -28,11 +28,15 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update_attributes(params[:post])
-    redirect_to post_path @post
+    flash[:notice] = "Your post was updated successfully!"
+    redirect_to posts_path @post
   end
 
   def destroy
-    
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "Your post was deleted successfully."
+    redirect_to posts_path 
   end
 
   def search

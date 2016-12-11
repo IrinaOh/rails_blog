@@ -2,7 +2,7 @@
 <p>Find me in app/views/posts/edit.html.erb</p>
 
 <h3>Edit your post here</h3>
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for @post, html: {method: :put} do |f| %>
 	<p>
 		<%= f.label :message, "Edit Message" %>
 		<%= f.text_area :message %>
