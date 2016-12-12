@@ -1,0 +1,10 @@
+<h1>Postcomments#index</h1>
+<p>Find me in app/views/postcomments/index.html.erb</p>
+
+<!-- experimental code -->
+<% @post.postcomments.each do |postcomment| %>
+  <h4> <%= link_to postcomment.body, postcomment %> </h4>
+  <p> <%= postcomment.created_at.strftime('%B, %d, %Y') %> </p>
+<% end %>
+<!-- end -->
+

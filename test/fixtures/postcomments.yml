@@ -2,8 +2,10 @@
 
 one:
   user_id: 1
-  message: MyString
+  post_id: 1
+  body: MyString
 
 two:
   user_id: 1
-  message: MyString
+  post_id: 1
+  body: MyString

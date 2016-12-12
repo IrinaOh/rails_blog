@@ -2,8 +2,6 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-	<div class="post wrapper">
-		<h2 class="title"> <%= link_to post.message, post %> </h2>
-		<p class="date"> <%= post.created_at.strftime('%B, %d, %Y') %> </p>
-	</div>
+	<h2> <%= link_to post.message, post %> </h2>
+	<p> <%= post.created_at.strftime('%B, %d, %Y') %> </p>
 <% end %>

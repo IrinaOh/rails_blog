@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209232557) do
+ActiveRecord::Schema.define(version: 20161212173617) do
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "message"
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "friendships", force: :cascade do |t|
-    t.integer  "friend_id"
+  create_table "postcomments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

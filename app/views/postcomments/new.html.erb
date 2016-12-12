@@ -1,0 +1,12 @@
+<h1>Postcomments#new</h1>
+<p>Find me in app/views/postcomments/new.html.erb</p>
+
+<%= form_for ([@post, @postcomment]) do |f| %>
+  <p>
+    <%= f.label :body, "New Comment" %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
