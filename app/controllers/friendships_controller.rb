@@ -17,3 +17,6 @@ class FriendshipsController < ApplicationController
   def update
   end
 end
+
+
+
