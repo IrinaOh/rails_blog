@@ -14,5 +14,6 @@
     <p> <%= postcomment.created_at.strftime('%B, %d, %Y') %> </p>
 	<% end %>
 </p>
-<%= link_to "Add Comment", new_post_postcomment_path(@post.id) %>
 
+<%= link_to "Add Comment", new_post_postcomment_path(@post.id) %>
+<%= link_to "Go back to all posts", posts_path(@post) %>

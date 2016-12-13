@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post]) #creates new post
-    @posts = Post.all
+    @post = Post.new(message: params[:post][:message], user_id: current_user.id) #creates new post
     if @post.save #saves this new post
       redirect_to posts_path  #redirects to another page with all earlier created posts
     else 
