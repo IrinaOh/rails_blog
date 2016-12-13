@@ -27,6 +27,10 @@ class PostcommentsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
+    @postcomment = @post.postcomment.find(params[:id])
+    @postcomment.destroy
+    redirect_to post_path @post
   end
 
   def edit
