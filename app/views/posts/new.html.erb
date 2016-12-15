@@ -2,7 +2,7 @@
 <p>Find me in app/views/posts/new.html.erb</p>
 
 <h3>Write your post here</h3>
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for @post do |f| %>
 	<p>
 		<%= f.label :message, "New Message" %>
 		<%= f.text_area :message %>
