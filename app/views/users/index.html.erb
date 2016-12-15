@@ -1,22 +1,14 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 
-<%= form_for @user do |f| %>
-	<%= f.label :fname, "First Name" %>
-	<%= f.text_field :fname %>
-	<%= f.label :lname, "Last Name" %>
-	<%= f.text_field :lname %>
-	<%= f.label :email, "Email" %>
-	<%= f.email_field :email %>
-	<%= f.label :password, "Password" %>
-	<%= f.password_field :password %>
-	<%= f.submit %>
+<%= link_to "Go Back to Profile", user_path(@user) %> <!-- returns user back to his/her profile -->
+<br>
+<% @users.each do |user| %>
+	<%= user.fname %> <%= user.lname %>
+	<%= form_for Friendship.new do |f| %>
+		<%= hidden_field_tag('friend_id', user.id) %>
+		<%= f.submit %>
+	<% end %>
+	<br>
 <% end %>
-
-<%= form_tag("/login", method: "post") do %>   
-	<%= label_tag(:email, "Email") %>   
-	<%= email_field_tag(:email) %>  
-	<%= label_tag(:password, "Password") %>   
-	<%= password_field_tag(:password) %>   
-	<%= submit_tag("Login") %> 
-<% end %>
+	

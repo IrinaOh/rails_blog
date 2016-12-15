@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.order('created_at DESC') #displays all posts created in order starting with the latest post
+    @user = current_user
   end
 
   def create
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(params[:post])
+    @post = Post.new
   end
 
   def edit
@@ -48,5 +49,10 @@ class PostsController < ApplicationController
   end
 
   def search
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:user_id, :message)
   end
 end

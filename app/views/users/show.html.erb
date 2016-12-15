@@ -1,12 +1,22 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<h3><%= @user.fname %>
-<%= @user.lname %> , You successfully logged in!</h3>
-
 <%= link_to "Logout", "#{request.base_url}/logout" %>
 <%= link_to "Add New Post", new_post_path(@post) %> <!-- links to create a new post page -->
+<%= link_to "Find People", users_path %>
+<%= link_to "Edit Profile", edit_user_path%>
+<%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %>
+
+
+<h3>You are logged in as <%= @user.fname %> <%= @user.lname %> </h3> <!-- pulls user's name  -->
+
+<h2>Your Friends:</h2>
+<% @friends.each do |friend| %>
+	<p><%= friend.friend.fname %> <%= friend.friend.lname %></p>
+	<%= link_to 'Unfollow', friendship_path(friend), method: :delete %>
+<% end %>
+
 <% @user.posts.each do |post| %> <!-- displays all posts -->
-	<p> <%= post.user.fname %> wrote on <%= post.created_at.strftime('%B, %d, %Y') %> </p>
+	<h3> <%= post.user.fname %> wrote on <%= post.created_at.strftime('%B, %d, %Y') %> </h3>
 	<h2> <%= link_to post.message, post %> </h2>
 <% end %>

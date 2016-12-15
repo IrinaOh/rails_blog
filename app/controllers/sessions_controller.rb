@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
   		session[:user_id] = @user.id 
   		redirect_to user_path @user
   	else
-  		redirect_to root_path
+      render 'new' #a better way to redirect_to
+  		#redirect_to root_path
   	end
   end
 
@@ -18,4 +19,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to users_path	
   end
+
+  
 end
