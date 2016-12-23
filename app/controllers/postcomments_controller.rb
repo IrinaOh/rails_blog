@@ -5,13 +5,14 @@ class PostcommentsController < ApplicationController
 
   def new
     @post = Post.find(params[:post_id])
+    @user = current_user
     @postcomment = Postcomment.new
   end
 
   def create
     @post = Post.find(params[:post_id])
-    @postcomment = @post.postcomments.new(params[:postcomment])
-    @postcomment.user = current_user
+    @postcomment = @post.postcomments.new(body: params[:postcomment][:body], user_id: current_user.id)
+    
     if @postcomment.save
       redirect_to post_path(@post)
     else
