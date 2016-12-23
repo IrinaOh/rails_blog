@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    
   end
 
   def create
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to users_path	
+    redirect_to login_path	
   end
 
   
